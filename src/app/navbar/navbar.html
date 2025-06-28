@@ -1,0 +1,69 @@
+<nav class="bg-purple-700 text-white p-4 shadow-md">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Top Row: Brand on the Left, Links + Toggle on the Right -->
+    <div class="flex items-center justify-between">
+      <!-- Brand -->
+      <div class="text-xl font-bold">Kiln</div>
+
+      <!-- Desktop Nav + Toggle Button Wrapper -->
+      <div class="flex items-center space-x-4">
+        <!-- Nav Links (Desktop Only) -->
+        <ul class="hidden sm:flex space-x-6">
+          <li><a routerLink="/home" class="hover:underline">Home</a></li>
+          <li><a routerLink="/features" class="hover:underline">Features</a></li>
+          <li><a routerLink="/pricing" class="hover:underline">Pricing</a></li>
+          <li><a routerLink="/render" class="hover:underline">3D Render</a></li>
+          <li><a routerLink="/about" class="hover:underline">About</a></li>
+          <li><a routerLink="/contact" class="hover:underline">Contact</a></li>
+          <li><a routerLink="/gallery" class="hover:underline">Gallery</a></li>
+          <li><a routerLink="/blog" class="hover:underline">Blog</a></li>
+          <li><a routerLink="/login" class="hover:underline">Login</a></li>
+          <li><a routerLink="/register" class="hover:underline">Register</a></li>
+        </ul>
+
+        <!-- Toggle Button (Mobile Only) -->
+        <button
+          class="sm:hidden text-white focus:outline-none"
+          (click)="isMenuOpen = !isMenuOpen"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Links -->
+    <ul class="sm:hidden mt-4 space-y-2" *ngIf="isMenuOpen">
+      <li><a routerLink="/home" class="hover:underline block">Home</a></li>
+      <li><a routerLink="/features" class="hover:underline block">Features</a></li>
+      <li><a routerLink="/pricing" class="hover:underline block">Pricing</a></li>
+      <li><a routerLink="/render" class="hover:underline block">3D Render</a></li>
+      <li><a routerLink="/about" class="hover:underline block">About</a></li>
+      <li><a routerLink="/contact" class="hover:underline block">Contact</a></li>
+      <li><a routerLink="/gallery" class="hover:underline block">Gallery</a></li>
+      <li><a routerLink="/blog" class="hover:underline block">Blog</a></li>
+      <li><a routerLink="/login" class="hover:underline block">Login</a></li>
+      <li><a routerLink="/register" class="hover:underline block">Register</a></li>
+    </ul>
+
+    <!-- Search Bar -->
+    <div class="mt-4 flex justify-center">
+      <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
+        <input
+          type="search"
+          placeholder="Search..."
+          class="w-full sm:w-96 p-2 rounded bg-white text-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <button
+          class="p-2 rounded bg-purple-600 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+
+  </div>
+</nav>
