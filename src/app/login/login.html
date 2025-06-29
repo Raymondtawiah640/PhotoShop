@@ -2,7 +2,11 @@
   <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-purple-100">
     <h2 class="text-2xl font-bold mb-6 text-purple-700 text-center">Login</h2>
 
+    <p *ngIf="message" class="mt-4 text-center text-red-600">{{ message }}</p>
+
+
     <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <!-- Email -->
       <div class="mb-4">
         <label for="email" class="block mb-2 text-sm font-semibold text-gray-700">Email</label>
         <input
@@ -15,6 +19,7 @@
         />
       </div>
 
+      <!-- Password -->
       <div class="mb-6">
         <label for="password" class="block mb-2 text-sm font-semibold text-gray-700">Password</label>
         <input
@@ -27,6 +32,7 @@
         />
       </div>
 
+      <!-- Submit Button -->
       <button
         type="submit"
         class="w-full bg-purple-700 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -34,5 +40,15 @@
         Login
       </button>
     </form>
+
+    <!-- Extra Links -->
+    <div class="mt-4 text-sm text-center text-gray-600">
+      <p>Don't have an account? 
+        <a routerLink="/register" class="text-purple-600 hover:underline">Register</a>
+      </p>
+      <p>Forgot your password? 
+        <a routerLink="/resetPassword" class="text-purple-600 hover:underline">Reset it</a>
+      </p>
+    </div>
   </div>
 </div>
