@@ -15,28 +15,27 @@ export class RegisterComponent {
   password = '';
 
   onRegister() {
-  const userData = {
-    name: this.name,
-    email: this.email,
-    password: this.password
-  };
+    const userData = {
+      name: this.name,
+      email: this.email,
+      password: this.password
+    };
 
-  fetch('https://vmd170310.contaboserver.net/api/register.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-    alert(data.message || 'Registered!');
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Something went wrong.');
-  });
-}
-
+    fetch('http://localhost/photoshop/api/register.php', { // ✅ Localhost path
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      alert(data.message || 'Registered!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Something went wrong.');
+    });
+  }
 }

@@ -4,20 +4,23 @@
 $host = 'localhost';
 $db   = 'ecommerce_website';
 $user = 'root';
-$pass = 'Password1';
-$port = 3307; // Change this
-$charset = 'utf8mb4';
+$pass = '';           // No password
+$port = 3307;         // ✅ Match your MariaDB port
 
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+$dsn = "mysql:host=$host;port=$port;dbname=$db";
 
 $options = [
-  PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
 
 try {
   $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-  echo json_encode(["success" => false, "message" => "DB Connection failed: " . $e->getMessage()]);
+  echo json_encode([
+    "success" => false,
+    "message" => "DB Connection failed: " . $e->getMessage()
+  ]);
   exit();
 }
+?>
