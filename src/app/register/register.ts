@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +14,8 @@ export class RegisterComponent {
   email = '';
   password = '';
 
+  constructor(private router: Router) {}
+
   onRegister() {
     const userData = {
       name: this.name,
@@ -21,7 +23,7 @@ export class RegisterComponent {
       password: this.password
     };
 
-    fetch('http://localhost/photoshop/api/register.php', { // ✅ Localhost path
+    fetch('http://localhost/photoshop/api/register.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -32,6 +34,10 @@ export class RegisterComponent {
     .then(data => {
       console.log(data);
       alert(data.message || 'Registered!');
+      if (data.success) {
+        // ✅ Use Angular Router to navigate
+        this.router.navigate(['/login']);
+      }
     })
     .catch(error => {
       console.error('Error:', error);

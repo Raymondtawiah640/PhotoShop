@@ -33,10 +33,12 @@ try {
   $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
   // Insert new user
-  $stmt = $pdo->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
+  $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
   $stmt->execute([$name, $email, $hashedPassword]);
 
   echo json_encode(["success" => true, "message" => "Registration successful."]);
+
+
 } catch (PDOException $e) {
   echo json_encode(["success" => false, "message" => "Database error: " . $e->getMessage()]);
 }

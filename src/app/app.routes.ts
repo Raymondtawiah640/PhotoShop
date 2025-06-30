@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register';
 import { FooterComponent } from './footer/footer';
 import { AboutComponent } from './about/about';
 import { ContactComponent } from './contact/contact';
+import { ProfileComponent } from './profile/profile';
 
 
 export const routes: Routes = [
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', redirectTo: 'home' }
 ];

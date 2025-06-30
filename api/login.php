@@ -23,11 +23,20 @@ try {
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
   // Check user exists and password is correct
-  if ($user && password_verify($password, $user['password'])) {
-    echo json_encode(["success" => true, "message" => "Login successful"]);
-  } else {
-    echo json_encode(["success" => false, "message" => "Invalid credentials"]);
-  }
+ if ($user && password_verify($password, $user['password'])) {
+  echo json_encode([
+    "success" => true,
+    "message" => "Login successful",
+    "user" => [
+      "id" => $user['id'],
+      "username" => $user['username'], // ✅ Include username
+      "email" => $user['email']
+    ]
+  ]);
+} else {
+  echo json_encode(["success" => false, "message" => "Invalid credentials"]);
+}
+
 
 } catch (PDOException $e) {
   echo json_encode(["success" => false, "message" => "Database error: " . $e->getMessage()]);

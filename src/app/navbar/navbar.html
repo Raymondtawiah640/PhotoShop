@@ -18,8 +18,21 @@
           <li><a routerLink="/contact" class="hover:underline">Contact</a></li>
           <li><a routerLink="/gallery" class="hover:underline">Gallery</a></li>
           <li><a routerLink="/blog" class="hover:underline">Blog</a></li>
-          <li><a routerLink="/login" class="hover:underline">Login</a></li>
-          <li><a routerLink="/register" class="hover:underline">Register</a></li>
+          <li *ngIf="!authService.isLoggedIn()">
+            <a routerLink="/login" class="hover:underline">Login</a>
+          </li>
+          <li *ngIf="!authService.isLoggedIn()">
+            <a routerLink="/register" class="hover:underline">Register</a>
+          </li>
+
+          <li *ngIf="authService.isLoggedIn()">
+            <button (click)="authService.logout();">Logout</button>
+          </li>
+          <li *ngIf="authService.isLoggedIn()">
+           <a routerLink="/profile" class="hover:underline">Profile</a>
+          </li>
+
+        
         </ul>
 
         <!-- Toggle Button (Mobile Only) -->
@@ -48,7 +61,8 @@
       <li><a routerLink="/login" class="hover:underline block">Login</a></li>
       <li><a routerLink="/register" class="hover:underline block">Register</a></li>
     </ul>
-
+      <br>
+      <br>
     <!-- Search Bar -->
     <div class="mt-4 flex justify-center">
       <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">

@@ -1,0 +1,14 @@
+<div class="min-h-screen flex items-center justify-center bg-purple-50">
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-purple-100 text-center">
+    <h2 class="text-2xl font-bold text-purple-700 mb-4">Your Profile</h2>
+
+    <ng-container *ngIf="user; else noUser">
+      <p class="text-lg text-gray-800"><strong>Name:</strong> {{ user?.username }}</p>
+      <p class="text-lg text-gray-800"><strong>Email:</strong> {{ user?.email }}</p>
+    </ng-container>
+
+    <ng-template #noUser>
+      <p class="text-red-600 font-medium">You are not logged in.</p>
+    </ng-template>
+  </div>
+</div>
