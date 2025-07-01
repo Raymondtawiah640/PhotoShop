@@ -12,12 +12,12 @@
         <ul class="hidden sm:flex space-x-6">
           <li><a routerLink="/home" class="hover:underline">Home</a></li>
           <li><a href="#features" class="hover:underline">Features</a></li>
-          <li><a routerLink="/pricing" class="hover:underline">Pricing</a></li>
+          <li><a href="#pricing" class="hover:underline">Pricing</a></li>
           <li><a routerLink="/render" class="hover:underline">3D Render</a></li>
           <li><a routerLink="/about" class="hover:underline">About</a></li>
           <li><a routerLink="/contact" class="hover:underline">Contact</a></li>
           <li><a routerLink="/gallery" class="hover:underline">Gallery</a></li>
-          <li><a routerLink="/blog" class="hover:underline">Blog</a></li>
+          <li><a href="#blog" class="hover:underline">Blog</a></li>
           <li *ngIf="!authService.isLoggedIn()">
             <a routerLink="/login" class="hover:underline">Login</a>
           </li>
