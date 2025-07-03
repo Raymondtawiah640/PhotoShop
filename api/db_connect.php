@@ -1,11 +1,9 @@
 <?php
-// db_connect.php
-
 $host = 'localhost';
-$db   = 'photo';
-$user = 'root';
-$pass = '';           // No password
-$port = 3307;         // ✅ Match your MariaDB port
+$port = 8080; // Confirmed MySQL port
+$db   = 'foto';
+$user = 'Raymond';
+$pass = ''; // No password set
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db";
 
@@ -16,6 +14,10 @@ $options = [
 
 try {
   $pdo = new PDO($dsn, $user, $pass, $options);
+  echo json_encode([
+    "success" => true,
+    "message" => "Connected successfully"
+  ]);
 } catch (PDOException $e) {
   echo json_encode([
     "success" => false,
