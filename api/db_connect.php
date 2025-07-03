@@ -2,7 +2,7 @@
 // db_connect.php
 
 $host = 'localhost';
-$db   = 'ecommerce_website';
+$db   = 'photo';
 $user = 'root';
 $pass = '';           // No password
 $port = 3307;         // ✅ Match your MariaDB port
